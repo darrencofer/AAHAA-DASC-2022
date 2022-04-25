@@ -16,3 +16,23 @@ Lessons learned from the demonstration [DARREN]
 
 - changes/improvements for future demos (more dynamic)
 
+The flight testing setup consisted of having two general aviation aircraft, safely separated vertically, and put on straight-and-level trajectories headed towards a virtual collision point in the National Airspace System (NAS) over Central Washington State.  The flights occurred in an airspace volume closely coordinated with Air Traffic Control at Grant County International Airport in Moses Lake, Washington.  The flight test plan, and the design of all aircraft systems, underwent thorough safety reviews by the US Air Force and the Boeing Company before flight testing.
+
+The two aircraft used in the flight testing were equipped with Automatic Dependent Surveillance-Broadcast (ADS-B) In and ADS-B Out functionality.  The Boeing autonomy testbed aircraft used its onboard ADS-B In system to sense the location of the Intruder aircraft headed which has headed on a collision course towards the Control Point (CP) shown in the diagram below.  See Figure Y.  DAA functionality on the testbed aircraft detected the Intruder at a safe distance and triggered the generation of avoidance waypoint routes that the testbed would fly to remain well clear of the Intruder aircraft.  
+
+There were two avoidance routes automatically generated on the Boeing autonomy testbed aircraft – one was from an onboard neural net developed on the DARPA program, and the other route from a prototype DAA capability developed by Boeing on internal funds which did not use a neural net.
+The Collins Aerospace Run-Time Assurance (RTA) functionality assessed the 2 routes and determined which of the 2 would be flown by the testbed to remain well clear of the Intruder.
+
+Flight testing consisted of the live execution of multiple 2-aircraft test conditions.  Each test condition specified the following:
+\begin{enumerate}
+\item A relative heading angle between the testbed aircraft and the Intruder; multiple relative heading angles were flown, including a head-on encounter (relative heading = 180 degrees), and other relative headings in 45 degree intervals.
+\item The specification to use one of two LECs that were integrated into the testbed aircraft flight software, one termed the ``good LEC'' and the other the ``bad LEC.''
+\end{enumerate}
+
+The ``good LEC'' was expected to generate safe remain-well-clear trajectories, with the expectation that the Collins Aerospace RTA functionality would assess this route as safe.  Alternatively, the “bad LEC’, was expected to generate unsafe trajectories, with the expectation that the Collins Aerospace RTA functionality would assess this route as unsafe.
+
+During the numerous test conditions flown in the NAS near Moses Lake, WA:
+\begin{itemize}
+\item In test conditions where the good LEC was used, the generated avoidance waypoint routes resulted in safe and standards conformant remain-well-clear avoidance of the Intruder, and the Collins RTA functionality successfully assessed the LEC routes as safe, which resulted in the testbed aircraft flying the LEC route.
+\item In general, for test conditions where the bad LEC was used, the generated avoidance waypoint routes were not able to maintain standards conformant remain-well-clear avoidance of the Intruder, and the Collins RTA functionality successfully assessed the LEC routes as unsafe, which resulted in the testbed aircraft flying the route from the prototype DAA capability developed by Boeing on internal funds which did not use a neural net.  There was a case, though, where the bad LEC actually created a route good enough to be standards conformant, and the Collins RTA functionality did judge that route as safe, which resulted in the testbed aircraft flying the LEC route.
+\end{itemize}
