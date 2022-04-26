@@ -33,7 +33,10 @@ Monitors, high-assurance components, backup avoidance plan
 
 Run-time assurance architecture was developed to guarantee the absence of unintended behavior resulting from the collision avoidance neural network
 
-- RTA, AADL model [DARREN/ISAAC]
+%- RTA, AADL model [DARREN/ISAAC]
+
+The run-time assurance architecture is illustrated in Figure~\ref{fig:rta-arch}.  Incoming ADS-B messages are assessed by the Detect \& Avoid (DAA) subsystem.  When an avoidance alert is generated, the Safe Backup Planner generates a baseline avoidance function (BAF) plan, which then triggers the generation of an LEC plan.  The RTA monitor performs a stay well clear (SWC) assessment on both plans in the context of the current ownship state, and the Plan Selector then chooses one of the two plans based and informs the Plan Switch of its decision.
+The Plan Switch publishes a flight plan based on the Plan Selector output.
 
 - Trajectory prediction, SWC assessment [RAM/DARREN]
 

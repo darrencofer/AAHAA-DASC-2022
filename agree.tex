@@ -1,26 +1,19 @@
 \subsection{Architecture Verification}
 
-[JUNAID/ISAAC - 1 pg]
+%AGREE analysis of RTA arch in AADL
 
-AGREE analysis of RTA arch in AADL
+One of the steps for design-time assurance of the RTA architecture is verifying the architecture satisfies its high-level requirements.  Traditionally, requirements verification has been achieved using a combination of directed testing methods and manual review. However, model-based specification enables a more rigorous approach to verification via formal methods analysis. With both the requirements and architecture represented in formal (well-defined, unambiguous) notations, SMT solvers can be employed to determine whether there is any possible sequence of inputs that will violate a requirement.  Furthermore, failure by the solver to find a counterexample is essentially equivalent to a mathematical proof that the requirement can never be violated.  
 
-One of the steps in constructing the assurance argument of the RTA architecture is verifying the architecural model with respect to formal high-level requirements.
-The RTA architecture was modelled in AADL (Fig. \ref{fig:rta-agree}) using the Open Source AADL Tool Environment (OSATE),
-and the high-level requirements were added to this AADL model as AGREE specifications \cite{agree2012}.
-AGREE specifications are used to describe component behavior through assume-guaranteee contracts, and
-these contracts are analyzed using AGREE's compositional reasoning framework available through the AGREE plugin for OSATE.
-[TODO: do we need to describe AADL here?]
-[TODO: do we need to mention FMIDE?]
+In architecture models, we can represent high-level requirements as assume-guarantee contracts on components.  \textit{Guarantees} are statements about a component's outputs which will always hold as long as stated \textit{assumptions} are valid.  When designing an architecture comprised of multiple components, it is imperative to verify that a system's subcomponent contracts satisfy the overall system contract, as well as whether a component's assumptions are valid with respect to the specified upstream guarantees and environment.
+%
+We use the AGREE tool~\cite{agree2012} to specify and analyze component contracts in our run-time assurance architecture.  AGREE is a plugin for the Open Source AADL Tool Environment (OSATE), enabling contracts to be specified directly on AADL model components and analyzed within the modeling environment.
 
-The goal of the AGREE analysis of the RTA architecture was to verify the following high-level property:
-the RTA architecture is guaranteed to publish only safe flight plans.
-[TODO: Isaac, please edit the requirement wording]
-In Fig. \ref{fig:rta-agree}, when an avoidance alert is generated, the Safe Backup Planner generates a BAF plan;
-this triggers the generation of an LEC plan.
-The Plan Selector chooses one of the two plans based on the SWC Assessment output, and informs the Plan Switch of its decision.
-The Plan Switch publishes a flight plan based on the Plan Selector output.
-We annotated the RTA's AADL model with assume-guarantee contracts for each of the RTA architecture components,
-and the AGREE plugin was able to verify the high-level property under the assumption that BAF flight plans were safe.
+%The RTA architecture was modeled in AADL (Figure~\ref{fig:rta-agree}) using the Open Source AADL Tool Environment (OSATE), and the high-level requirements were added to this AADL model as AGREE specifications \cite{agree2012}.  AGREE specifications are used to describe component behavior through assume-guaranteee contracts, and these contracts are analyzed using AGREE's compositional reasoning framework available through the AGREE plugin for OSATE.
+
+The main objective of our AGREE analysis of the collision avoidance model was to verify that the RTA architecture is guaranteed to publish only safe flight plans.
+%
+%In Figure~\ref{fig:rta-agree}, when an avoidance alert is generated, the Safe Backup Planner generates a BAF plan; this triggers the generation of an LEC plan. The Plan Selector chooses one of the two plans based on the SWC Assessment output, and informs the Plan Switch of its decision. The Plan Switch publishes a flight plan based on the Plan Selector output.
+As illustrated in Figure~\ref{fig:rta-agree}, we annotated the AADL model with assume-guarantee contracts for each component in the architecture, and AGREE was able to verify the high-level property under the assumption that BAF flight plan is always safe.
 
 \begin{figure*}
 	\centering
