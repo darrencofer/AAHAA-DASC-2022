@@ -1,34 +1,32 @@
 \section{Assurance Challenges}
 
-[DARREN - 0.5 pg]
-
-The assurance challenges for the use of neural networks in safety-critical aircraft applications
-
-Show absence of unintended functionality -- do no harm
-
 For software in commercial aircraft, DO-178C \cite{DO-178} provides
 the latest version of guidance regarding software aspects of
 certification and is used by the aviation industry and regulators
 as a means of compliance with airworthiness regulations.
 At a high level, DO-178C helps manufacturers achieve two
-main goals: 1) to demonstrate that software complies with
-its requirements (intended functionality), and 2) that it does
+main goals: 1) demonstrate that software complies with
+its requirements (intended functionality), and 2) show that it does
 nothing unexpected (unintended functionality). Unintended
 functionality or unintended behavior can therefore be defined
 as software behavior than cannot be traced back to any requirement.
 
 LECs and their software implementations
 break many of the assumptions that are the basis for current
-certification processes. In particular, the design intent cannot
+certification processes. An LEC design
+is created through training based on large amounts of example
+data.  This means, for example, that individual elements
+in a neural network (weights, connections, or activation 
+functions configured during training) do not represent design 
+choices that can be traced back to specific requirements.
+Therefore, the design intent cannot
 be inferred from an examination of an LEC model or its
-software implementation.
+software implementation.  
 
-LECs present unique challenges that may be barriers to the
-use of traditional, model-based, or formal methods guidance
-currently defined in DO-178C and its supplements. Fundamentally,
-this is due to the reliance on requirements-based testing
-(or verification) and structural coverage metrics.  
-
+DO-178C fundamentally relies on requirements-based testing
+(or verification) and structural coverage metrics, and works 
+extremely well to show that a traditional software development process 
+correctly implements a set of requirements.  
 Structural coverage metrics were constructed with the understanding
 that much of the complexity of traditional software
 is manifested in the logical decisions that are being implemented.
@@ -36,14 +34,12 @@ This logic should be traceable to specific software
 requirements. When requirements-based tests fail to exercise
 part of the software logic as revealed by structural coverage
 metrics, it is reasonable to conclude that something is amiss
-(either a missing requirement or some unintended function).
+(either a missing requirement or some unintended behavior).
 Since neural networks do not primarily implement logical
 decisions, structural coverage can usually be achieved with one
-test case (or possibly a small number of them) \cite{whitebox}. Individual lines
-of code in the software representation of a neural network do
-not represent design choices that implement specific requirements.
+test case (or possibly a small number of them) \cite{whitebox}. 
 Therefore, current structural coverage metrics are not
-helpful in identifying unintended behaviors.
+helpful in identifying and eliminating unintended behaviors.
 
 Since it is difficult to demonstrate assurance by examining
 the LEC design (as is assumed by existing certification processes),
