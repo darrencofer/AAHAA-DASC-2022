@@ -28,13 +28,13 @@ whether their times of closest approach are beyond the 179 second limit.  If
 exactly one plan's tCPA is beyond the limit, we choose the other plan.  If
 neither is beyond the limit, we chose the LEC plan.  Otherwise, both plans'
 tCPA is beyond the 179 second limit.  In that case, we choose the plan with the
-larger predicted miss distance.  See Fig. \ref{fig:selection-logic} for the
+larger predicted miss distance.  See Figure~\ref{fig:selection-logic} for the
 full decision table.
 
 We formalized this decision table and applied our synthesis tools, based on the
-ACL2 theorem prover\cite{acl2}, to synthesize high-assurance decision code
+ACL2 theorem prover~\cite{acl2}, to synthesize high-assurance decision code
 implementing the table logic.  This process used the $\verb+def-table+$
-machinery described in \cite{dasc2020}.  In particular, proofs are
+machinery described in~\cite{dasc2020}.  In particular, proofs are
 automatically performed on the table to ensure completeness (some case always
 applies, and an output is always produced) and unambiguity (no more than one
 case applies, so a unique output is always produced).
