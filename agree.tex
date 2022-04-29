@@ -22,7 +22,7 @@ There are four guarantees shown in Figure~\ref{fig:rta-agree}:
 \item An ADS-B intruder conflict results in a safe plan being selected by the Plan Switch under the assumption that the BAF plan is always safe.
 \end{itemize}
 
-The figure also demonstrates that AGREE can be used to detect vacuous guarantees, i.e. guarantees that are true because the context in which the guarantee should hold never occurs. Figure~\ref{fig:rta-agree} describes two such statements:
+The figure also demonstrates the use of AGREE to detect {\em vacuous} guarantees.  This refers to guarantees that are true only because the context in which the guarantee should hold never occurs. Figure~\ref{fig:rta-agree} shows two such statements:
 \begin{itemize}
 \item The High Assurance System always selects the BAF plan if it is safe.
 \item The Plan Switch always selects the BAF plan if it is safe.

@@ -17,8 +17,8 @@ The Boeing Autonomy Testbed Aircraft is a Cessna Caravan 208B, tail number N208B
 	\label{fig:caravan}
 \end{figure}
 
-Detect and avoid (DAA) mission operating and performance standards are defined in RTCA document DO-365 \cite{DO_365}.  The standard provides guidance for interactions of Unmanned Aircraft Systems (UAS) in the National Airspace System, requirements for safe operation of aircraft during encounters including separation distance minimums for remaining well clear of aircraft and avoiding mid-air collisions, and proper aircraft equipage to achieve safe detect and avoid operations.
-The assurance challenge posed in our work focuses on the Autonomy Testbed aircraft flying in the vicinity of another ``intruder'' airplane, where the test flight software includes a Boeing-developed LEC to generate an avoidance flight plan for the Testbed to remain well clear of the intruder aircraft as defined in DO-365.  The underlying assurance technology montors the Boeing LEC in order to assess the avoidance trajectory from the LEC and guarantee safety. 
+Detect and Avoid (DAA) mission operating and performance standards are defined in RTCA document DO-365 \cite{DO_365}.  The standard provides guidance for interactions of Unmanned Aircraft Systems (UAS) in the National Airspace System, requirements for safe operation of aircraft during encounters including separation distance minimums for remaining well clear of aircraft and avoiding mid-air collisions, and proper aircraft equipage to achieve safe detect and avoid operations.
+The assurance challenge posed in our work focuses on the Autonomy Testbed Aircraft flying in the vicinity of another ``intruder'' airplane, where the test flight software includes a Boeing-developed LEC to generate an avoidance flight plan for the Testbed to remain well clear of the intruder aircraft as defined in DO-365.  The underlying assurance technology montors the Boeing LEC in order to assess the avoidance trajectory from the LEC and guarantee safety. 
 
 \begin{figure*}
 	\centering
@@ -32,10 +32,10 @@ System elements include:
 \begin{itemize}
 \item ADS-B – The primary sensor for perceiving the airspace is the Automated Dependent Surveillance Broadcast (ADS-B) system providing detection information on  nearby aircraft (intruders) to the other system functions.
 %\item ADS-B Tracker – Generates intruder track information from received ADS-B messages to the other system functions.
-\item Avoidance Alerts – Evaluates potential future traffic conflicts and issues “alerts” to the Avoidance functions.  Assessment definition and requirements are specified in DO-365 MOPS for DAA System.
+\item Avoidance Alerts – Evaluates potential future traffic conflicts and issues “alerts” to the Avoidance functions as specified in DO-365.
 \item LEC Planner -- Neural network system trained offline through reinforcement learning to generate avoidance flight plans satisfying DAA requirements.  Training and operation is described in the following subsection.  
 \item Backup Avoidance Planner – A trusted but less optimal backup planner that provides waypoint navigation paths to avoid airspace incursion.  Avoidance computation method is virtual predictive radar which is designed to provide maximum ``safe passage timed corridors.''  Avoidance path terminates back on the original flight plan.
-\item Run-Time Assurance  – Run-time monitoring, predication, and assessment systems that guarantee the selection of a safe flight plan for the aircraft.  Operation and assurance are described in Sections \ref{sec:rta} and \ref{sec:assurance}.
+\item Run-Time Assurance  – Run-time monitoring, prediction, and assessment systems that guarantee the selection of a safe flight plan for the aircraft.  Operation and assurance are described in Sections \ref{sec:rta} and \ref{sec:assurance}.
 \item Autonomous Executive – Constructs and manages execution of the vehicle flight plan and contains a function to ``splice in'' avoidance guidance waypoint plans into the original flight plan.
 %\item Vehicle Manager – Executes flight path provided by AE including guidance and control for the vehicle.  The VM also sends commands and receives feedback from actuation system components.
 %\item Actuators / Sensors – Carries out VMS flight control surface commands and provides positional feedback.
