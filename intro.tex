@@ -11,14 +11,14 @@ by examining its implementation or tracing specific design
 elements back to requirements.
 
 Our team is developing assurance technologies that can support the use of machine learning in the
-design of safety-critical aircraft systems. These capabilities have been integrated on Boeing’s
+design of safety-critical aircraft systems. These capabilities have been integrated on Boeing's
 autonomy demonstrator aircraft to show that they can provide evidence of correct operation and
 safety guarantees needed by real aircraft. In previous work \cite{dasc2020} we have used a run-time assurance
 (RTA) architecture to ensure the safety of an autonomous neural network-based aircraft taxiing
 application. In our current work we have applied RTA along with formal methods
-modeling and analysis tools to an airborne collision avoidance system based on a neural network.
+modeling, synthesis, and analysis tools to an airborne collision avoidance system based on a neural network.
 This system was demonstrated in-flight and shown to correctly monitor neural network operation and
-intervene when needed to prevent violation of the “remain well clear” safety requirement relative to
+intervene when needed to prevent violation of the ``remain well clear'' safety requirement relative to
 an intruder aircraft. Thirty-six test conditions were flown with various collision course
 geometries
 %, with relative heading angles of 45, 90, 135, 180 (head-on), 225, 270, and 315 degrees
@@ -46,7 +46,7 @@ In this paper we will discuss:
 \begin{itemize} 
 \item The assurance challenges associated with the use of LECs in safety-critical aircraft applications 
 \item The autonomy framework and aircraft used to demonstrate the collision avoidance neural network capability 
-\item The run-time assurance architecture developed to guarantee the that any potential unintended behaviors in the neural network do not impact safety
+\item The run-time assurance architecture developed to guarantee that any potential unintended behaviors in the neural network do not impact safety
 \item The formal methods assurance technologies applied within the architecture, including analysis of the architecture design and synthesis of decision logic from a formal specification
 \item Flight testing, results obtained for various test scenarios, and lessons learned from the
 demonstration
