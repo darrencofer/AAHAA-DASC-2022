@@ -13,7 +13,7 @@ We use the Assume Guarantee Reasoning Environment (AGREE)~\cite{agree2012} to sp
 The main objective of our AGREE analysis of the collision avoidance system was to verify that the RTA architecture is guaranteed to publish only safe flight plans.
 %
 %In Figure~\ref{fig:rta-agree}, when an avoidance alert is generated, the Safe Backup Planner generates a BAF plan; this triggers the generation of an LEC plan. The Plan Selector chooses one of the two plans based on the SWC Assessment output, and informs the Plan Switch of its decision. The Plan Switch publishes a flight plan based on the Plan Selector output.
-As illustrated in Figure~\ref{fig:rta-agree}, we annotated the AADL model with assume-guarantee contracts for each component in the architecture, and AGREE was able to verify the high-level property under the assumption that backup avoidance flight plan is always safe.
+As illustrated in Figure~\ref{fig:rta-agree}, we annotated the AADL model with assume-guarantee contracts for each component in the architecture, and AGREE was able to verify the high-level property under the assumption that the backup avoidance flight plan is always safe.
 There are four guarantees shown in Figure~\ref{fig:rta-agree}:
 \begin{itemize}
 \item An ADS-B intruder conflict results in a BAF plan being generated.

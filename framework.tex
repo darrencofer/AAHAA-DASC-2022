@@ -68,7 +68,7 @@ relative positions rather than absolute.  Repacked observations consumed by the 
 
 \subsection{RL Policy Agent}
 
-The RL policy agent learns the task by interacting with the simulation and iteratively updating the parameters of the policy model using Stochastic Gradient Descent (SGD) optimization. We approximate the policy with a multi-layered perceptron shown in Fig. \ref{fig:policy_model}.
+The RL policy agent learns the task by interacting with the simulation and iteratively updating the parameters of the policy model using Stochastic Gradient Descent (SGD) optimization. We approximate the policy with a multi-layered perceptron shown in Figure~\ref{fig:policy_model}.
 
 \begin{figure}[h]
 	\centering
@@ -82,7 +82,7 @@ The state of the system (including both Agent and Intruder) is fully observable,
 The state of the agent is described as
 $$ s = \{ v_a, \psi_a, v_i, \psi_i, \beta_i, d_i, \beta_g, d_g \}$$
 
-where 
+\noindent where 
 $v_a$ is agent speed,
 $\psi_a$ is agent heading,
 $v_i$ is intruder speed,
@@ -107,14 +107,14 @@ The value of the state is the expected future reward accumulated over the trajec
 	V^{*}(s) &= \max_{a} \left( R(s,a) + \gamma \sum_{s'} T(s'|s,a) V^{*}(s') \right)
 \end{align}
 
-The RL policy model is based on the Actor-Critic architecture that helps to improve the stability of the training \cite{sutton2018reinforcement}. The SGD-based update for Actor $\theta$ and Critic $w$ network is:
+The RL policy model is based on the Actor-Critic architecture that helps to improve the stability of the training~\cite{sutton2018reinforcement}. The SGD-based update for Actor $\theta$ and Critic $w$ network is:
 \begin{align}
 	\delta &=  R_{t+1} +\gamma \hat V(s_{t+1},w) - \hat V(s_t,w) \\
 	w &\leftarrow w + \alpha \delta \nabla \hat V (s, w) \\
 	\theta &\leftarrow \theta + \alpha \delta \nabla \ln \pi (a|s, \theta)
 \end{align} 
 
-The core functionality of the RL agent incorporates the Stable Baselines library, a very reputable fork of OpenAI Baselines \cite{hill2018stable}. For the exploration policy and update steps, this work used the Proximal Policy Optimization (PPO) algorithm that becomes the state of the art in continuous-action agents \cite{schulman2017proximal}.
+The core functionality of the RL agent incorporates the Stable Baselines library, a very reputable fork of OpenAI Baselines \cite{hill2018stable}. For the exploration policy and update steps, this work used the Proximal Policy Optimization (PPO) algorithm that becomes the state of the art in continuous-action agents~\cite{schulman2017proximal}.
 
 
 \subsection{LEC Integration on Testbed Aircraft}
@@ -126,7 +126,7 @@ The core functionality of the RL agent incorporates the Stable Baselines library
 	\label{fig:integration}
 \end{figure}
 
-System integration is done using the Robot Operating System (ROS) interface \cite{quigley2009ros}. This allows unifying the interfaces to the high-fidelity simulation and to the physical aircraft demonstrator.
+System integration is done using the Robot Operating System (ROS) interface~\cite{quigley2009ros}. This allows unifying the interfaces to the high-fidelity simulation and to the physical aircraft demonstrator.
 The ROS-LEC Agent, shown in Figure~\ref{fig:integration}, aggregates data from different domains and provides important utilities to the system. Its job is designed as follows: 
 \begin{itemize}
 	\item receive and accumulate ROS messages regarding the own-ship state,
