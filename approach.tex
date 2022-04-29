@@ -1,6 +1,8 @@
 \section{Run-Time Assurance}
 \label{sec:rta}
 
+%Moved description of plan selector and decision logic table to the end of this section
+
 Run-time assurance architectures add high-assurance components
 to the system to ensure that a complex or difficult-to-verify component (such as our LEC) cannot cause
 unsafe or unintended system behaviors. Run-time monitors
@@ -35,3 +37,4 @@ The RWC assessment consists of evaluating time-stamped samples of the predicted 
 
 In addition to the determination of safety, the closest point of approach (CPA) between the own-ship and intruder predicted trajectories is calculated along with the time to CPA. The CPA metrics allow the Plan Selector decision logic component to choose between plans that are both marked unsafe by the RWC assessment. These metrics allow for a comparison with the actual measured CPA metrics during simulation and test flights as a way to evaluate the run-time monitor performance.
 
+\input{plan-selector}
