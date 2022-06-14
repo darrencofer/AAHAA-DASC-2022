@@ -25,17 +25,17 @@ If only one plan has been received by the three second timeout, we select (publi
 that plan by default.
 If we receive two plans and only one is safe, we select the safe plan.
 If neither plan is safe, we select the one with the larger predicted miss distance.
-If both plans are safe, the LEC plan is in usually selected.  However, there is some
+If both plans are safe, the LEC plan is usually selected.  However, there is some
 additional tie-breaking logic.
 If tCPA is beyond the planning horizon for one of the plan, this means that we don't really know what
 its true CPA is so we select the other plan.
-If tCPA is behond the planning horizon for both plans, we fall back to selecting the plan with
+If tCPA is beyond the planning horizon for both plans, we fall back to selecting the plan with
 the greater predicted miss distance.
 
 Different selection logic could be specified depending on vehicle and program requirements,
 and indeed our specification evolved over the course of the project.  However, the
 formal synthesis approach (described in the next section) ensures that we can
-quickly regenerate a correct implementation of the specificaiton.
+quickly regenerate a correct implementation of the specification.
 
 %not valid, we deem it unfit for publication.  If a plan is valid, and we've yet
 %to receive the other plan after 3 seconds, we go ahead and publish the plan we
